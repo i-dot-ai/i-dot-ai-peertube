@@ -32,13 +32,6 @@ jobs:
       PEERTUBE_DB_USERNAME: postgres
       PEERTUBE_DB_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
 
-    strategy:
-      matrix:
-        app: [peertube]
-        include:
-          - app: peertube
-            dockerfile: docker/peertube/Dockerfile
-
     steps:
       - uses: actions/checkout@v3
 
@@ -49,7 +42,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build, tag, and push ${{ matrix.app }} image
+      - name: Build, tag, and push peertube image
         env:
           DOCKER_FILE: docker/peertube/Dockerfile
           DOCKER_IMAGE: peertube
