@@ -107,34 +107,6 @@ jobs:
   #     - name: CF login
   #       run: ./cf login -a api.london.cloud.service.gov.uk -u "${{ secrets.CF_USER }}" -p "${{ secrets.CF_PASSWORD }}" -o co-i-ai -s "$CF_SPACE"
 
-      - name: CF push ${{ matrix.app }}
-        if:  ${{ matrix.app != 'ellandi-recommender' }}
-        env:
-          DOCKER_FILE: ${{ matrix.dockerfile }}
-          DOCKER_IMAGE: ${{ matrix.app }}
-          PAT_TOKEN_USER: ${{ secrets.PAT_TOKEN_USER }}
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: CF_DOCKER_PASSWORD="$PAT_TOKEN" ./cf push -f manifests/"$CF_SPACE/${{ matrix.app }}"_manifest.yml --docker-image $DOCKER_REPOSITORY/${{ github.repository_owner }}/$DOCKER_IMAGE:$IMAGE_TAG --docker-username=$PAT_TOKEN_USER
-
-      - name: CF push ${{ matrix.app }}
-        if:  ${{ matrix.app == 'ellandi-recommender' }}
-        env:
-          DOCKER_FILE: ${{ matrix.dockerfile }}
-          DOCKER_IMAGE: ${{ matrix.app }}
-          PAT_TOKEN_USER: ${{ secrets.PAT_TOKEN_USER }}
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: CF_DOCKER_PASSWORD="$PAT_TOKEN" ./cf push -f manifests/"$CF_SPACE/${{ matrix.app }}"_manifest.yml --docker-image $DOCKER_REPOSITORY/${{ github.repository_owner }}/$DOCKER_IMAGE:$IMAGE_TAG --docker-username=$PAT_TOKEN_USER --no-start
 
 
-  #     - uses: actions/checkout@v2
-  #     - name: Slack Notification
-  #       continue-on-error: true
-  #       if: ${{ failure() && github.ref_name == 'prod' || failure() && github.ref_name == 'develop' }}
-  #       uses: rtCamp/action-slack-notify@v2
-  #       env:
-  #         SLACK_COLOR: '#FF0000'
-  #         SLACK_ICON: https://avatars0.githubusercontent.com/u/818058?s=200&v=4
-  #         SLACK_TITLE: '${{ github.ref_name }} deployment ${{ job.status }} :warning:'
-  #         SLACK_USERNAME: ${{ github.actor }}
-  #         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  #         SLACK_MESSAGE: '${{ github.ref_name }} Action ${{ job.status }}'
+
