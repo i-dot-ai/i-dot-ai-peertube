@@ -27,7 +27,7 @@ PEERTUBE_SMTP_PORT=25
 PEERTUBE_SMTP_FROM=noreply@peertube.localhost
 PEERTUBE_SMTP_TLS=false
 PEERTUBE_SMTP_DISABLE_STARTTLS=false
-PEERTUBE_ADMIN_EMAIL=
+PEERTUBE_ADMIN_EMAIL=noreply@peertube.localhost
 
 # Postfix service configuration
 POSTFIX_myhostname=peertube.localhost

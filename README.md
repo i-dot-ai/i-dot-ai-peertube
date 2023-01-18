@@ -1,6 +1,7 @@
-## test build of peertube for cloud foundry
+# build of peertube for cloud foundry
+Currently a work in progres
 
-### local push to CF
+### local push to CF using act
 act --secret-file .secrets -W .github/workflows/peertube.yml push -j push_images --rm
 
 
