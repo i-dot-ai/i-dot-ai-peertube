@@ -1,0 +1,29 @@
+# Python
+*.pyc
+db.sqlite3
+/api/staticfiles
+/organogram/staticfiles
+/api/*.pkl
+/api/*.npy
+
+
+# JavaScript
+node_modules
+dist
+dist-ssr
+*.local
+coverage
+.eslintcache
+.nvmrc
+*.code-workspace
+*.log
+*.tsbuildinfo
+.xnr
+!.scripts
+
+# General
+.DS_Store
+.env
+.secrets
+orig.*
+orig-*

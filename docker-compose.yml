@@ -1,0 +1,55 @@
+version: "3.3"
+
+services:
+  testpeertube:
+    build:
+      context: .
+      dockerfile: ./docker/peertube/Dockerfile
+      args:
+        GIT_SHA: ""
+    image: test-peertube
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - ./envs/peertube
+    # volumes:
+    #   - ./:/app/:z
+    ports:
+      - "9000:9000" 
+
+  postgres:
+    image: postgres:13-alpine
+    env_file:
+      - ./envs/peertube
+    volumes:
+      - ./docker-volume/db:/var/lib/postgresql/data
+    restart: "always"
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:6-alpine
+    volumes:
+      - ./docker-volume/redis:/data
+    restart: "always"
+
+
+  # postfix:
+  #   image: mwader/postfix-relay
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./docker-volume/opendkim/keys:/etc/opendkim/keys
+  #   restart: "always"
+
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.18.0.0/16
+
+# volumes:
+#   assets:
+  # certbot-www:
