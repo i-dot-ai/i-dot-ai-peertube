@@ -10,8 +10,6 @@ ENV PEERTUBE_DB_USERNAME: postgres
 ENV PEERTUBE_DB_PASSWORD: ${POSTGRES_PASSWORD}
 
 
-COPY ./docker/peertube/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 
 COPY . /app
 
