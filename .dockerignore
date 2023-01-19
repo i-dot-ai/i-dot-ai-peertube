@@ -19,4 +19,4 @@
 # storage
 # node_modules
 # client/node_modules
-# docker-volume/*
+docker-volume
