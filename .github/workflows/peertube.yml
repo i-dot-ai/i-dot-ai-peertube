@@ -48,7 +48,7 @@ jobs:
           DOCKER_IMAGE: peertube
 
         run: |
-          docker build . --file $DOCKER_FILE --tag $DOCKER_REPOSITORY/${{ github.repository_owner }}/$DOCKER_IMAGE:$IMAGE_TAG --build-arg POSTGRES_PASSWORD=$POSTGRES_PASSWORD --build-arg PEERTUBE_SECRET=$PEERTUBE_SECRET
+          docker build . --file $DOCKER_FILE --tag $DOCKER_REPOSITORY/${{ github.repository_owner }}/$DOCKER_IMAGE:$IMAGE_TAG
           docker push -a $DOCKER_REPOSITORY/${{ github.repository_owner }}/$DOCKER_IMAGE
 
   deploy_image:

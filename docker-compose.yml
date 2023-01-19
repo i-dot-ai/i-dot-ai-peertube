@@ -7,6 +7,7 @@ services:
       dockerfile: ./docker/peertube/Dockerfile
       args:
         GIT_SHA: ""
+        PEERTUBE_SECRET: 2dd252e9d2017489ca8addcf6a0836d6970336612e437a648903579f56c4976f
     image: test-peertube
     depends_on:
       - postgres
