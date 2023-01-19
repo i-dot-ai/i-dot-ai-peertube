@@ -28,7 +28,7 @@ jobs:
       PEERTUBE_SECRET: ${{ secrets.PEERTUBE_SECRET }}
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      POSTGRES_DB: peertube
+      POSTGRES_DB: postgres
       PEERTUBE_DB_USERNAME: postgres
       PEERTUBE_DB_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
 
