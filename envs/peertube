@@ -4,7 +4,7 @@ PEERTUBE_SECRET=2dd252e9d2017489ca8addcf6a0836d6970336612e437a648903579f56c4976f
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=insecure
 # # Postgres database name "peertube"
-POSTGRES_DB=postgres
+POSTGRES_DB=peertube
 # # Editable only with a suffix :
 # #POSTGRES_DB=peertube_prod
 # #PEERTUBE_DB_SUFFIX=_prod
