@@ -5,19 +5,20 @@ services:
     build:
       context: .
       dockerfile: ./docker/peertube/Dockerfile
-      args:
-        GIT_SHA: ""
-        PEERTUBE_SECRET: 2dd252e9d2017489ca8addcf6a0836d6970336612e437a648903579f56c4976f
+      # args:
+      #   GIT_SHA: ""
+      #   PEERTUBE_SECRET: 2dd252e9d2017489ca8addcf6a0836d6970336612e437a648903579f56c4976f
     image: test-peertube
     depends_on:
       - postgres
       - redis
     env_file:
       - ./envs/peertube
+      # - .envs
     # volumes:
     #   - ./:/app/:z
     ports:
-      - "9000:9000" 
+      - "9000:9000"
 
   postgres:
     image: postgres:13-alpine
@@ -44,12 +45,12 @@ services:
   #     - ./docker-volume/opendkim/keys:/etc/opendkim/keys
   #   restart: "always"
 
-networks:
-  default:
-    ipam:
-      driver: default
-      config:
-      - subnet: 172.18.0.0/16
+# networks:
+#   default:
+#     ipam:
+#       driver: default
+#       config:
+#       - subnet: 172.18.0.0/16
 
 # volumes:
 #   assets:
