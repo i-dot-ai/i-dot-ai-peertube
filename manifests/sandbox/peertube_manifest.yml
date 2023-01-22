@@ -3,6 +3,7 @@ applications:
 - name: peertube-sandbox
   services:
   - peertube-postgres-sandbox
+  - peertube-redis-sandbox
   routes:
   - route: peertube-sandbox.london.cloudapps.digital
     protocol: http1

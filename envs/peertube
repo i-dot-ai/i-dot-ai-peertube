@@ -1,10 +1,10 @@
 PEERTUBE_SECRET=2dd252e9d2017489ca8addcf6a0836d6970336612e437a648903579f56c4976f
 
-
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=insecure
+DATABASE_NAME=ricky
+# POSTGRES_USER=postgres
+# POSTGRES_PASSWORD=insecure
 # # Postgres database name "peertube"
-POSTGRES_DB=peertube
+# POSTGRES_DB=ricky
 # # Editable only with a suffix :
 # #POSTGRES_DB=peertube_prod
 # #PEERTUBE_DB_SUFFIX=_prod
@@ -13,21 +13,17 @@ PEERTUBE_DB_PASSWORD=insecure
 # PEERTUBE_DB_SSL=false
 # # Default to Postgres service name "postgres" in docker-compose.yml
 # PEERTUBE_DB_HOSTNAME=postgres
-DATABASE_URL='postgres://postgres:insecure@postgres:5432/peertube'
+PEERTUBE_DB_HOSTNAME='postgres'
+DATABASE_URL='postgres://postgres:insecure@postgres:5432/ricky'
 PEERTUBE_WEBSERVER_HOSTNAME=peertube.localhost
-
+PEERTUBE_WEBSERVER_HTTPS=false
 # E-mail configuration
 # If you use a Custom SMTP server
 #PEERTUBE_SMTP_USERNAME=
 #PEERTUBE_SMTP_PASSWORD=
 # Default to Postfix service name "postfix" in docker-compose.yml
 # May be the hostname of your Custom SMTP server
-PEERTUBE_SMTP_HOSTNAME=postfix
-PEERTUBE_SMTP_PORT=25
-PEERTUBE_SMTP_FROM=noreply@peertube.localhost
-PEERTUBE_SMTP_TLS=false
-PEERTUBE_SMTP_DISABLE_STARTTLS=false
-PEERTUBE_ADMIN_EMAIL=noreply@peertube.localhost
+
 
 # Postfix service configuration
 POSTFIX_myhostname=peertube.localhost

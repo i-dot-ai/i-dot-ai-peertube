@@ -4,13 +4,6 @@ FROM chocobozzz/peertube:production-bullseye
 
 COPY . /app
 
-COPY ./docker/peertube/start.sh /start.sh
-RUN chmod +x /start.sh
-
-COPY ./docker/peertube/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+COPY ./docker/peertube/custom-environment-variables.yaml /app/support/docker/production/config/custom-environment-variables.yaml
 
 EXPOSE 9000
-
-ENTRYPOINT ["sh","/entrypoint.sh"]
-CMD ["sh","/start.sh"]

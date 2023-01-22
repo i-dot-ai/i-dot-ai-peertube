@@ -23,7 +23,7 @@ coverage
 
 # General
 .DS_Store
-.env
+.envs
 .secrets
 orig.*
 orig-*
